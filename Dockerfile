@@ -1,5 +1,9 @@
-FROM php:7.4-fpm-alpine
-COPY . /web
+FROM php:7.3-fpm
+
+COPY . /app
 WORKDIR /var/www/html
-VOLUME /var/www/html
-EXPOSE 9000
+
+# RUN docker-php-ext-install pdo pdo_mysql mysqli
+# RUN docker-php-ext-install mysqli && docker-php-ext-enable mysqli
+RUN docker-php-ext-install mysqli pdo pdo_mysql && docker-php-ext-enable mysqli
+
