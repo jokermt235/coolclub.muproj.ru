@@ -1,1 +1,3 @@
 .git
+code/vendor
+code/composer.lock
